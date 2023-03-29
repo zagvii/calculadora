@@ -42,3 +42,49 @@ function equal(){
         }
     }   
 }
+
+function escuro(){
+    var background = document.getElementById("background");
+    var especiais = document.getElementsByName("especiais");
+    
+    background.style.backgroundColor = "#27182E";
+
+    especiais.forEach(function(element) {
+        element.style.backgroundColor = "#383B53";
+
+        element.addEventListener(
+            "mouseover",
+            (event) => {
+                event.target.style.boxShadow = "0px 0px 6px 2px rgba(0,0,0,0.5) inset";
+            },
+            false,
+        );
+        element.addEventListener(
+            "mouseout", 
+            (event) => {
+                event.target.style.boxShadow = "0px 0px 0px inset";
+            },
+            false,
+        );
+
+        element.style.color = "white";
+    });
+
+    document.getElementById("moon").style.display = "none";
+    document.getElementById("sun").style.display = "block";
+}
+
+function claro(){
+    var background = document.getElementById("background");
+    var especiais = document.getElementsByName("especiais");
+    
+    background.style.backgroundColor = "#D4D6B9";
+
+    especiais.forEach(function(element) {
+        element.style.backgroundColor = "#D1CAA1";
+        element.style.color = "white";
+    });
+
+    document.getElementById("sun").style.display = "none";
+    document.getElementById("moon").style.display = "block";
+}
