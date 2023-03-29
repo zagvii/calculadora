@@ -1,9 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 body{
-    background-color: #E0E0E0;
+    background-color: #D4D6B9;
     font-family: 'Quicksand', sans-serif;
     letter-spacing: 2px;
+}
+
+.fa-regular{
+    font-size: 25px;
+    position: absolute;
+    margin-top: 10px;
+    right: 40px;
+}
+
+.fa-regular:hover{
+    font-weight: bold;
+}
+
+.fa-moon::before{
+    position: absolute;
+    content: "\f186";
+    color: #383B53;    
+} 
+
+.fa-brightness::before{
+    position: absolute;
+    content: "\f185";
+    color: #D4D6B9;
 }
 
 #container{
@@ -24,7 +47,7 @@ hr{
     left: 50%;
     top: 7px;
     margin-left: -12.5px;
-    border: 1px solid #E0E0E0;
+    border: 1px solid #D4D6B9;
     border-radius: 50px;
 }
 
@@ -87,7 +110,8 @@ input[type='button']{
 }
 
 input[type='button']:last-of-type, .linha:first-of-type input[type='button']{
-    background-color: #F7F7F7;
+    background-color: #D1CAA1;
+    color: white
 }
 
 .linha:last-of-type input:last-of-type{
@@ -100,5 +124,5 @@ input[type='button']:hover{
 }
 
 input[type='button']:last-of-type:hover, .linha:first-of-type input[type='button']:hover{
-    background-color: rgb(200, 200, 200);
+    background-color: #D1CAA1;
 }

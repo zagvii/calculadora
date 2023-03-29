@@ -10,7 +10,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>    
     <title>Calculadora</title>
 </head>
-<body>
+<script>
+    function escuro(){
+        var background = document.getElementById("background");
+        var especiais = document.getElementsByName("especiais");
+        
+        background.style.backgroundColor = "#27182E";
+
+        especiais.forEach(function(element) {
+            element.style.backgroundColor = "#383B53";
+
+            element.addEventListener(
+                "mouseover",
+                (event) => {
+                    event.target.style.boxShadow = "0px 0px 6px 2px rgba(0,0,0,0.5) inset";
+                },
+                false,
+            );
+            element.addEventListener(
+                "mouseout", 
+                (event) => {
+                    event.target.style.boxShadow = "0px 0px 0px inset";
+                },
+                false,
+            );
+
+            element.style.color = "white";
+        });
+
+        document.getElementById("moon").style.display = "none";
+        document.getElementById("sun").style.display = "block";
+    }
+
+    function claro(){
+        var background = document.getElementById("background");
+        var especiais = document.getElementsByName("especiais");
+        
+        background.style.backgroundColor = "#D4D6B9";
+
+        especiais.forEach(function(element) {
+            element.style.backgroundColor = "#D1CAA1";
+            element.style.color = "white";
+        });
+
+        document.getElementById("sun").style.display = "none";
+        document.getElementById("moon").style.display = "block";
+    }
+
+</script>
+<body id="background">
+    <i class="fa-regular fa-moon" id="moon" onclick="escuro()"></i>
+    <i class="fa-regular fa-brightness" id="sun" style="display: none;" onclick="claro()"></i>
     <div id="container">
         <hr>
         <form name="form">
@@ -20,33 +70,33 @@
             </div>
             <div class="buttons">
                 <div class="linha">
-                    <input type="button" value="AC" onclick="apagar()" >
-                    <input type="button" value="(" onclick="form.input.value += '('">
-                    <input type="button" value=")" onclick="form.input.value += ')'">
-                    <input type="button" value="/" onclick="form.input.value += '/'">
+                    <input type="button" name="especiais" value="AC" onclick="apagar()" >
+                    <input type="button" name="especiais" value="(" onclick="form.input.value += '('">
+                    <input type="button" name="especiais" value=")" onclick="form.input.value += ')'">
+                    <input type="button" name="especiais" value="/" onclick="form.input.value += '/'">
                 </div>
                 <div  class="linha">
                     <input type="button" value="7" onclick="form.input.value += '7'" >
                     <input type="button" value="8" onclick="form.input.value += '8'" >
                     <input type="button" value="9" onclick="form.input.value += '9'" >
-                    <input type="button" value="&times" onclick="form.input.value += '*'" >
+                    <input type="button" name="especiais" value="&times" onclick="form.input.value += '*'" >
                 </div>
                 <div  class="linha">
                     <input type="button" value="4" onclick="form.input.value += '4'" >
                     <input type="button" value="5" onclick="form.input.value += '5'" >
                     <input type="button" value="6" onclick="form.input.value += '6'" >
-                    <input type="button" value="-" onclick="form.input.value += '-'" >
+                    <input type="button" name="especiais" value="-" onclick="form.input.value += '-'" >
                 </div>
                 <div  class="linha">
                     <input type="button" value="1" onclick="form.input.value += '1'" >
                     <input type="button" value="2" onclick="form.input.value += '2'" >
                     <input type="button" value="3" onclick="form.input.value += '3'" >
-                    <input type="button" value="+" onclick="form.input.value += '+'" >
+                    <input type="button" name="especiais" value="+" onclick="form.input.value += '+'" >
                 </div>
                 <div  class="linha">
                     <input type="button" value="0" onclick="form.input.value += '0'" >
                     <input type="button" value="." onclick="form.input.value += '.'" >
-                    <input type="button" value="=" onclick="equal()" >
+                    <input type="button" name="especiais" value="=" onclick="equal()" >
                 </div>
             </div>
         </form>
