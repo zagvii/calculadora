@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/iconeTitle.png"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>    
+    <title>Calculadora</title>
+</head>
+<script>
+    document.getElementById("input").setAttribute('size', '20');
+
+    function apagar(){
+
+        if (document.getElementById("historico").style.visibility == "hidden" && document.form.input.value != " "){
+            document.form.input.value = " ";
+
+        } else if (document.getElementById("historico").style.visibility == "visible" && document.form.input.value != " "){
+            document.form.input.value = " ";
+
+        } else if (document.getElementById("historico").style.visibility == "visible" && document.form.input.value == " "){
+            document.getElementById("historico").style.visibility = "hidden";
+        }
+    }
+
+    function equal(){
+        
+        var calculo = document.form.input.value;
+
+        try {
+            expressao = eval(calculo);
+            historico = calculo;
+            visibilidade = "visible";
+            cor = "inherit";
+
+            eval(calculo); 
+
+        } catch (e) {
+            if (e instanceof SyntaxError) {
+                expressao = "ERRO";
+                historico = " - ";
+                visibilidade = "hidden";
+                cor = "red";
+            }
+
+        } finally {
+            document.getElementById("historico").style.visibility = visibilidade;
+            document.getElementById("historico").textContent = historico;
+            document.getElementById('input').style.color = cor;
+            document.form.input.value = expressao;
+
+            setTimeout(myTimer, 4000);
+            function myTimer() {
+                document.getElementById('input').style.color = 'black';
+            }
+        }
+    }
+</script>
+<body>
+    <div id="container">
+        <hr>
+        <form name="form">
+            <div class="inputContainer" id="inputContainer">
+                <div name="historico" class="historico" id="historico" style="visibility: hidden;">invisivel</div>
+                <input type="text" name="input" id="input">
+            </div>
+            <div class="buttons">
+                <div class="linha">
+                    <input type="button" value="AC" onclick="apagar()" >
+                    <input type="button" value="(" onclick="form.input.value += '('">
+                    <input type="button" value=")" onclick="form.input.value += ')'">
+                    <input type="button" value="/" onclick="form.input.value += '/'">
+                </div>
+                <div  class="linha">
+                    <input type="button" value="7" onclick="form.input.value += '7'" >
+                    <input type="button" value="8" onclick="form.input.value += '8'" >
+                    <input type="button" value="9" onclick="form.input.value += '9'" >
+                    <input type="button" value="&times" onclick="form.input.value += '*'" >
+                </div>
+                <div  class="linha">
+                    <input type="button" value="4" onclick="form.input.value += '4'" >
+                    <input type="button" value="5" onclick="form.input.value += '5'" >
+                    <input type="button" value="6" onclick="form.input.value += '6'" >
+                    <input type="button" value="-" onclick="form.input.value += '-'" >
+                </div>
+                <div  class="linha">
+                    <input type="button" value="1" onclick="form.input.value += '1'" >
+                    <input type="button" value="2" onclick="form.input.value += '2'" >
+                    <input type="button" value="3" onclick="form.input.value += '3'" >
+                    <input type="button" value="+" onclick="form.input.value += '+'" >
+                </div>
+                <div  class="linha">
+                    <input type="button" value="0" onclick="form.input.value += '0'" >
+                    <input type="button" value="." onclick="form.input.value += '.'" >
+                    <input type="button" value="=" onclick="equal()" >
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

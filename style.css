@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+body{
+    background-color: #E0E0E0;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+}
+
+#container{
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    background-color: white;
+    width: 300px;
+    height: 450px;
+    border-radius: 15px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    margin: -225px 0 0 -150px;
+}
+
+hr{
+    width: 25px;
+    position: absolute;
+    left: 50%;
+    top: 7px;
+    margin-left: -12.5px;
+    border: 1px solid #E0E0E0;
+    border-radius: 50px;
+}
+
+.inputContainer{
+    border-radius: 15px;
+    position: absolute;
+    width: 78%;
+    height: 15%;
+    margin: 27px 0px 0 13px;
+    padding: 15px 20px 0px 20px;
+    font-size: 15px;
+    text-align: right;  
+}
+
+.inputContainer .historico{
+    color: gray;
+    margin-bottom: 5px;
+}
+
+.inputContainer #input{
+    color: black;
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+    height: 25px;
+    font-size: 20px;
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+input:focus-visible{
+    border: none;
+    outline: none;
+}
+
+.buttons{
+   padding: 43% 20px 0px 20px;
+   display: inline-block;
+   width: 87%;
+}
+
+.buttons .linha{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 13px;
+}
+
+input[type='button']{
+    background-color: white;
+    position: relative;
+    border: 0;
+    font-family: 'Quicksand', sans-serif;
+    border-radius: 50%;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    font-size: 17px;
+    font-weight: bold;  
+}
+
+input[type='button']:last-of-type, .linha:first-of-type input[type='button']{
+    background-color: #F7F7F7;
+}
+
+.linha:last-of-type input:last-of-type{
+    width: 150px;
+    border-radius: 15px;
+}
+
+input[type='button']:hover{
+    box-shadow: 0px 0px 6px 2px rgba(0,0,0,0.1) inset;
+}
+
+input[type='button']:last-of-type:hover, .linha:first-of-type input[type='button']:hover{
+    background-color: rgb(200, 200, 200);
+}
