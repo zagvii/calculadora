@@ -28,8 +28,6 @@ function equal(){
             historico = " - ";
             visibilidade = "hidden";
             cor = "red";
-
-            console.log(expressao, historico, visibilidade, cor)
     
         } finally {
             document.getElementById("historico").style.visibility = visibilidade;
@@ -42,6 +40,5 @@ function equal(){
                 document.getElementById('input').style.color = 'black';
             }
         }
-        // console.log(expressao, calculo, historico);
     }   
 }
