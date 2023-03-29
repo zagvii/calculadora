@@ -13,7 +13,7 @@ function equal(){
         
     var calculo = document.form.input.value;
 
-    if(calculo){
+    if(calculo != ' '){
         try {
             expressao = eval(calculo);
             historico = calculo;
@@ -41,5 +41,7 @@ function equal(){
                 document.getElementById('input').style.color = 'black';
             }
         }
+    } else {
+        document.form.input.value = " ";
     }
 }
