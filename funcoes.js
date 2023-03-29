@@ -1,10 +1,11 @@
 function apagar(){
 
-    if (document.getElementById("historico").style.visibility == "hidden" && document.form.input.value != " "){
-        document.form.input.value = " ";
-    } else if (document.getElementById("historico").style.visibility == "visible" && document.form.input.value != " "){
-        document.form.input.value = " ";
-    } else if (document.getElementById("historico").style.visibility == "visible" && document.form.input.value == " "){
+    if (document.getElementById("historico").style.visibility == "hidden" && document.form.input.value != ""){
+        document.form.input.value = "";
+    } else if (document.getElementById("historico").style.visibility == "visible" && document.form.input.value != ""){
+        document.form.input.value = "";
+    } else if (document.getElementById("historico").style.visibility == "visible" && document.form.input.value == ""){
+        document.getElementById("historico").value = "";
         document.getElementById("historico").style.visibility = "hidden";
     }
 }
@@ -13,7 +14,7 @@ function equal(){
         
     var calculo = document.form.input.value;
 
-    if(calculo != ' '){
+    if(calculo != ''){
         try {
             expressao = eval(calculo);
             historico = calculo;
@@ -23,12 +24,12 @@ function equal(){
             eval(calculo); 
     
         } catch (e) {
-            if (e instanceof SyntaxError) {
-                expressao = "ERRO";
-                historico = " - ";
-                visibilidade = "hidden";
-                cor = "red";
-            }
+            console.log(e)
+
+            expressao = "ERRO";
+            historico = " - ";
+            visibilidade = "hidden";
+            cor = "red";
     
         } finally {
             document.getElementById("historico").style.visibility = visibilidade;
@@ -41,7 +42,6 @@ function equal(){
                 document.getElementById('input').style.color = 'black';
             }
         }
-    } else {
-        document.form.input.value = " ";
-    }
+        console.log(expressao, calculo, historico);
+    }   
 }
